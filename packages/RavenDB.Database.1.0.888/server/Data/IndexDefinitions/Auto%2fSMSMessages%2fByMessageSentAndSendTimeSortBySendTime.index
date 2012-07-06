@@ -1,0 +1,20 @@
+{
+  "Name": "Auto/SMSMessages/ByMessageSentAndSendTimeSortBySendTime",
+  "Map": "from doc in docs.SMSMessages\r\nselect new { MessageSent = doc.MessageSent, SendTime = doc.SendTime }",
+  "Maps": [
+    "from doc in docs.SMSMessages\r\nselect new { MessageSent = doc.MessageSent, SendTime = doc.SendTime }"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": false,
+  "Stores": {},
+  "Indexes": {},
+  "SortOptions": {
+    "SendTime": "String"
+  },
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Auto"
+}

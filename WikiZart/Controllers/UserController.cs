@@ -107,8 +107,8 @@ namespace WikiZart.Controllers
                         string encryptedTicket = FormsAuthentication.Encrypt(authTicket); 
                         var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket); 
                         Response.Cookies.Add(authCookie);
-                        
-                        return this.Redirect(FormsAuthentication.DefaultUrl);
+
+                        return Redirect(System.Configuration.ConfigurationManager.AppSettings["ApplicationUrl"] + returnUrl);
 
 
                     case AuthenticationStatus.Canceled:
@@ -119,7 +119,7 @@ namespace WikiZart.Controllers
                         break;
                 }
             }
-            return View();
+            return Redirect(System.Configuration.ConfigurationManager.AppSettings["ApplicationUrl"] + returnUrl);
         }
 
     }

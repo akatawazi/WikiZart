@@ -1,0 +1,18 @@
+{
+  "Name": "Temp/Articles/ByParentID",
+  "Map": "from doc in docs.Articles\r\nselect new { ParentID = doc.ParentID }",
+  "Maps": [
+    "from doc in docs.Articles\r\nselect new { ParentID = doc.ParentID }"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": true,
+  "Stores": {},
+  "Indexes": {},
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Temp"
+}

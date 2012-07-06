@@ -15,7 +15,8 @@ namespace WikiZart.Controllers
         {
             return View(Article.GetAllRootArticles());
         }
-        public ActionResult ArticleEdit(string id, string subArticle)
+        [Authorize]
+        public ActionResult ArticleEdit(string id, string subArticle, string returnUrl)
         {
             if (!String.IsNullOrEmpty(subArticle))
             {
@@ -33,8 +34,9 @@ namespace WikiZart.Controllers
             return View(new Article()); 
         }
         [HttpPost]
+        [Authorize]
         [ValidateInput(false)]
-        public ActionResult ArticleEdit(Article article)
+        public ActionResult ArticleEdit(Article article, string returnUrl)
         {
             Article.Add(article,User.Identity.Name,Request.UserHostAddress, Request.Url.Authority.ToString());
             return RedirectToAction("Index");
