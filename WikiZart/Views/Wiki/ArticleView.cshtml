@@ -1,0 +1,47 @@
+﻿@{ViewBag.Title = Model.Title;}
+@model WikiZart.Models.Article
+<h2>@Model.Title</h2>
+<p>@Html.Raw(Model.Body)</p>
+
+<div class="WikiExplorer">
+@foreach (var article in WikiZart.Models.Article.GetAllSubArticles(Model.Id))
+{
+    var headerLength = article.Title.ToString().Length;
+    var headerEnding = "";
+    var bodyLength = article.wmdMarkup.ToString().Length;
+    var bodyEnding = "";
+    if (headerLength > 20) { headerLength = 20; headerEnding = "..."; }
+    if (bodyLength > 72) { bodyLength = 72; bodyEnding = "..."; }
+    <div class="Articles" style="margin:10px; width:161px; height:106px; float:left; background:#009999;">
+    <div style=" padding:3px; vertical-align:middle; text-align:center; padding-top:2px; background:#FF7400;">@Html.ActionLink(article.Title.Substring(0, headerLength) + headerEnding, "ArticleView", new { id = article.Id.Replace("articles/", "") })</div>
+    <div style=" padding:3px; vertical-align:top; background:#009999;">@article.wmdMarkup.Substring(0, bodyLength)@bodyEnding</div>
+    
+    
+    </div>
+}
+</div>
+<div class='cleaner'>&nbsp;</div> 
+
+<span>Last Modified by: @Model.LastModifiedBy</span><br />
+<span>Last Modified Date: @Model.LastModified.ToString()</span><br />
+<span>@Html.ActionLink("Return to Article Browser", "Index") | 
+@Html.ActionLink("Edit Article", "ArticleEdit", new { id = Model.Id.Replace("articles/","") }) | 
+@Html.ActionLink("Create Sub Article", "ArticleEdit", new { subArticle = Model.Id.Replace("articles/","") }) | 
+<a class="ViewHistory" href="#">View History</a> <a class="HideHistory" style="display:none;" href="#">Hide History</a></span>
+
+<div class="History" style="display:none"><br />
+@if (Model.ArticleHistories != null)
+{
+    foreach (var article in Model.ArticleHistories.OrderByDescending(p => p.LastModified))
+    {
+        <hr />
+        <h2>@article.Title</h2>
+        @Html.Raw(article.Body)    
+        <p><span>Last Modified by: @article.LastModifiedBy</span><br />
+        <span>Last Modified Date: @article.LastModified.ToString()</span><br /></p>
+    
+    }
+
+}
+</div>
+    @Html.JavascriptManager("ArticleView")

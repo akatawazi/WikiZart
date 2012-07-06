@@ -1,0 +1,226 @@
+﻿body 
+{
+	padding-top:20px;
+}
+.KnowledgeMainDiv
+{
+	text-align:center;
+}
+.KnowledgeMainDiv p
+{
+	margin:0;
+}
+.ArticleDiv
+{
+	text-align:center;
+}
+
+/*===================Auto Complete CSS======================*/
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+/*===================Auto Complete CSS END======================*/
+
+
+/*===================WMD ======================*/
+
+
+#wmd-editor {
+background-color: #ffffff;
+}
+
+.wmd-panel {
+margin-left: 25%;
+margin-right: 25%;
+min-width: 500px;
+}
+
+.wmd-button-bar {
+clear: both;
+height: 25px;
+margin: 10px 0 1px;
+width: 100%;
+}
+
+.wmd-input,
+.wmd-output {
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+
+padding: 5px;
+overflow: auto;
+width: 100%;
+background-color: #ffffff;
+
+height: 250px;
+border: 1px solid #dddddd;
+}
+
+.wmd-preview {
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+
+padding: 5px;
+overflow: auto;
+width: 100%;
+background-color: #ffffff;
+
+border: 2px dotted #dddddd;
+}
+
+.wmd-preview > p {
+margin: 0 0 1em 0;
+}
+
+.wmd-preview > p:last-child {
+margin: 0;
+}
+
+.wmd-button-row {
+position: relative;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-top: 10px;
+padding: 0px;
+height: 20px;
+}
+
+.wmd-spacer {
+width: 1px;
+height: 20px;
+margin-left: 14px;
+
+position: absolute;
+background-color: #cccccc;
+display: inline-block;
+list-style: none;
+}
+
+.wmd-button {
+width: 20px;
+height: 20px;
+margin-left: 5px;
+margin-right: 5px;
+
+position: absolute;
+background-image: url(/Content/Images/wmd-buttons.png);
+background-repeat: no-repeat;
+background-position: 0px 0px;
+display: inline-block;
+list-style: none;
+}
+
+.wmd-button > a {
+width: 20px;
+height: 20px;
+margin-left: 5px;
+margin-right: 5px;
+
+position: absolute;
+display: inline-block;
+}
+
+/* sprite button slicing style information */
+.wmd-bold-button    {background-position: 0px 0;    left: 0;}
+.wmd-italic-button  {background-position: -20px 0;  left: 25px;}
+.wmd-spacer1        {left: 50px;}
+.wmd-link-button    {background-position: -40px 0;  left: 75px;}
+.wmd-quote-button   {background-position: -60px 0;  left: 100px;}
+.wmd-code-button    {background-position: -80px 0;  left: 125px;}
+.wmd-image-button   {background-position: -100px 0; left: 150px;}
+.wmd-spacer2        {left: 175px;}
+.wmd-olist-button   {background-position: -120px 0; left: 200px;}
+.wmd-ulist-button   {background-position: -140px 0; left: 225px;}
+.wmd-heading-button {background-position: -160px 0; left: 250px;}
+.wmd-hr-button      {background-position: -180px 0; left: 275px;}
+.wmd-spacer3        {left: 300px;}
+.wmd-undo-button    {background-position: -200px 0; left: 325px;}
+.wmd-redo-button    {background-position: -220px 0; left: 350px;}
+.wmd-help-button    {background-position: -240px 0; right: 0px;}
+
+
+.wmd-prompt-background {
+background-color: #000000;
+}
+
+.wmd-prompt-dialog {
+border: 1px solid #999999;
+background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+font-size: 0.8em;
+font-family: arial, helvetica, sans-serif;
+}
+
+.wmd-prompt-dialog > form > input[type="text"] {
+border: 1px solid #999999;
+color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"]{
+border: 1px solid #888888;
+font-family: trebuchet MS, helvetica, sans-serif;
+font-size: 0.8em;
+font-weight: bold;
+}
+
+/*===================WMD End======================*/
+
+.Articles a
+{
+	color:Black;
+}
+
+.cleaner { 
+  clear: both; 
+  font-size: 1px; 
+} 

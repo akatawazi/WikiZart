@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "WikiZart Article";
+}
+@model WikiZart.Models.Article
+
+@using (Html.BeginForm())
+{
+<h2>Article</h2>
+<input type="hidden" name="Id" id="Id" value="@Model.Id" /> 
+<p>Article Name: <br /> <input name="Title" value="@Model.Title"  id="Title" type="text"/></p>
+<div id="Body-button-bar" class="wmd-button-bar"></div>
+<p>Article Content: <br /> <textarea class="textarea textarea_middle wmd-input" rows="3" name="wmdMarkup"  id="wmdMarkup">@Model.Body</textarea></p>
+@Html.Hidden("Body")
+<div id="Body-preview" class="wmd-preview"></div>
+
+<p><input type="submit" id="SubmitButton" value="Save Article" /><input type="button" class="cancel" value="Cancel" /></p>
+    @Html.Hidden("ParentID", Model.ParentID)
+}
+    @Html.JavascriptManager("ArticleEdit")

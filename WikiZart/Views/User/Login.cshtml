@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Login", "User", new { returnUrl = Request.QueryString["returnUrl"] }, FormMethod.Post, new { id = "openid_form" }))
+{	
+	@Html.Partial("_OpenIdSelector")
+}
+
+@Html.JavascriptManager("Login")

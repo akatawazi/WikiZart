@@ -1,0 +1,34 @@
+﻿@{ViewBag.Title = "Knowledge Repository System";}
+@model List<WikiZart.Models.Article>
+<div class="KnowledgeMainDiv">
+<h2>WikiZart</h2>
+<p>Your repository of Knowledge</p>
+<p><input id="Search" type="text"  /></p>
+<p><a href="/Wiki/ArticleEdit">Create Root Article</a> | 
+@if(User.Identity.Name != null){ 
+    <a href="/User/Logout">Logout</a>
+}else{
+    <a href="/User/Login">Login</a>
+}
+</p>
+</div>
+<div class="WikiExplorer">
+@foreach (var article in Model)
+{
+    var headerLength = article.Title.ToString().Length;
+    var headerEnding = "";
+    var bodyLength = article.wmdMarkup.ToString().Length;
+    var bodyEnding = "";
+    if (headerLength > 20) { headerLength = 20; headerEnding = "..."; }
+    if (bodyLength > 72) { bodyLength = 72; bodyEnding = "..."; }
+    <div class="Articles" style="margin:10px; width:161px; height:106px; float:left; background:#009999;">
+    <div style=" padding:3px; vertical-align:middle; text-align:center; padding-top:2px; background:#FF7400;">@Html.ActionLink(article.Title.Substring(0, headerLength) + headerEnding, "ArticleView", new { id = article.Id.Replace("articles/", "") })</div>
+    <div style=" padding:3px; vertical-align:top; background:#009999;">@article.wmdMarkup.Substring(0, bodyLength)@bodyEnding</div>
+    
+    
+    </div>
+}
+
+
+</div>
+    @Html.JavascriptManager("Index")

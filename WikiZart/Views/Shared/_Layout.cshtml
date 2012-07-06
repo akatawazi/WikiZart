@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Html.JavascriptManager("")
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+
+</head>
+
+<body>
+    @RenderBody()
+    <input type="hidden" id="StaticFileURL" value="@System.Web.Configuration.WebConfigurationManager.AppSettings["StaticFileURL"]" />
+    <input type="hidden" id="ApplicationURL" value="@System.Web.Configuration.WebConfigurationManager.AppSettings["ApplicationURL"]" />
+@if (ViewBag.Message != null)
+    {
+        <input id="MessageType" type="hidden" value="@ViewBag.MessageType" />
+        <input id="MessageButtons" type="hidden" value="@ViewBag.MessageButtons" />
+        <input id="Message" type="hidden" value="@ViewBag.Message" />
+    }
+
+</body>
+
+
+</html>
